@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import { db } from './index';
+import { collection, addDoc, getDoc, doc, updateDoc, onSnapshot } from 'firebase/firestore';
 
 function App() {
   const [firstName, setFirstName] = useState('');
@@ -7,75 +9,89 @@ function App() {
   const [isComing, setIsComing] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const [docData, setDocData] = useState(null); // For fetched document data
+  const [loading, setLoading] = useState(true); // For loading state
+  // Fetch document data when component mounts
+  useEffect(() => {
+    async function fetchDocument() {
+      const docRef = doc(db, 'stella-zrin', 'k40cWfTAySWWaE2y2ffu');
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setDocData(docSnap.data());
+      } else {
+        console.log("No such document!");
+      }
+      setLoading(false);
+    }
+
+    fetchDocument();
+  }, []);
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (firstName && lastName && isComing) {
-      // You will handle Firebase here
-      setMessage('RSVP submitted! Thank you!');
-      setFirstName('');
-      setLastName('');
-      setIsComing('');
+      try {
+        await addDoc(collection(db, "guests"), {
+          firstName,
+          lastName,
+          isComing: isComing === 'yes',
+        });
+        setMessage('RSVP submitted! Thank you!');
+        setFirstName('');
+        setLastName('');
+        setIsComing('');
+      } catch (error) {
+        setMessage('Error submitting RSVP. Please try again.');
+      }
     } else {
       setMessage('Please complete the form.');
     }
   };
 
+  // Real-time updates (optional)
+  useEffect(() => {
+    const docRef = doc(db, 'stella-zrin', 'k40cWfTAySWWaE2y2ffu');
+    const unsubscribe = onSnapshot(docRef, (docSnap) => {
+      if (docSnap.exists()) {
+        setDocData(docSnap.data());
+      } else {
+        console.log("No such document!");
+      }
+    });
+
+    // Clean up the subscription on unmount
+    return () => unsubscribe();
+  }, []);
+
   return (
-    <div className="container">
-      <h1>You're Invited to Our Wedding!</h1>
-      <p>We would love for you to join us on our special day. Please confirm your attendance below:</p>
-
-      <form onSubmit={handleSubmit} className="rsvp-form">
-        <div>
-          <label>First Name:</label>
-          <input
-            type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
-        </div>
-
-        <div>
-          <label>Last Name:</label>
-          <input
-            type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            required
-          />
-        </div>
-
-        <div>
-          <label>Will you be attending?</label>
-          <div>
-            <label>
-              <input
-                type="radio"
-                value="yes"
-                checked={isComing === 'yes'}
-                onChange={(e) => setIsComing(e.target.value)}
-                required
-              />
-              Yes
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="no"
-                checked={isComing === 'no'}
-                onChange={(e) => setIsComing(e.target.value)}
-                required
-              />
-              No
-            </label>
-          </div>
-        </div>
-
-        <button type="submit">Submit RSVP</button>
+    <div>
+      <h1>Wedding RSVP</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+        <select
+          value={isComing}
+          onChange={(e) => setIsComing(e.target.value)}
+        >
+          <option value="">Will you attend?</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <button type="submit">Submit</button>
       </form>
-
-      <div className="message">{message}</div>
+      {message && <p>{message}</p>}
     </div>
   );
 }
