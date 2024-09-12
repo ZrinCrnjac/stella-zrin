@@ -50,21 +50,6 @@ function App() {
     }
   };
 
-  // Real-time updates (optional)
-  useEffect(() => {
-    const docRef = doc(db, 'stella-zrin', 'k40cWfTAySWWaE2y2ffu');
-    const unsubscribe = onSnapshot(docRef, (docSnap) => {
-      if (docSnap.exists()) {
-        setDocData(docSnap.data());
-      } else {
-        console.log("No such document!");
-      }
-    });
-
-    // Clean up the subscription on unmount
-    return () => unsubscribe();
-  }, []);
-
   return (
     <div>
       <h1>Wedding RSVP</h1>

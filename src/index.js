@@ -8,16 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
-// Your web app’s Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDBHQcgFuCGwvgx6xlVkL8e2YR0jPocf50",
-  authDomain: "stella-zrin-wedding.firebaseapp.com",
-  projectId: "stella-zrin-wedding",
-  storageBucket: "stella-zrin-wedding.appspot.com",
-  messagingSenderId: "872146637053",
-  appId: "1:872146637053:web:a79aae997223b3b862ae94",
-  measurementId: "G-F15BWRDPD7"
-};
+import firebaseConfig from './firebaseConfig';
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
