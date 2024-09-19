@@ -1,34 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import { collection, addDoc } from 'firebase/firestore';
 import { db } from './index';
-import { collection, addDoc, getDoc, doc, updateDoc, onSnapshot } from 'firebase/firestore';
 
 function App() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [isComing, setIsComing] = useState('');
   const [message, setMessage] = useState('');
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [responseMessage, setResponseMessage] = useState('');
 
-  const [docData, setDocData] = useState(null); // For fetched document data
-  const [loading, setLoading] = useState(true); // For loading state
-  // Fetch document data when component mounts
-  useEffect(() => {
-    async function fetchDocument() {
-      const docRef = doc(db, 'stella-zrin', 'k40cWfTAySWWaE2y2ffu');
-      const docSnap = await getDoc(docRef);
-
-      if (docSnap.exists()) {
-        setDocData(docSnap.data());
-      } else {
-        console.log("No such document!");
-      }
-      setLoading(false);
-    }
-
-    fetchDocument();
-  }, []);
-
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (firstName && lastName && isComing) {
@@ -38,10 +20,14 @@ function App() {
           lastName,
           isComing: isComing === 'yes',
         });
-        setMessage('RSVP submitted! Thank you!');
-        setFirstName('');
-        setLastName('');
-        setIsComing('');
+        setFormSubmitted(true);
+
+        // Set response message based on the selection
+        if (isComing === 'yes') {
+          setResponseMessage('Veselimo se vašem dolasku!');
+        } else {
+          setResponseMessage('Žao nam je što ne možete doći');
+        }
       } catch (error) {
         setMessage('Error submitting RSVP. Please try again.');
       }
@@ -51,32 +37,96 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Wedding RSVP</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <select
-          value={isComing}
-          onChange={(e) => setIsComing(e.target.value)}
-        >
-          <option value="">Will you attend?</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <button type="submit">Submit</button>
-      </form>
-      {message && <p>{message}</p>}
+    <div className="container">
+      {!formSubmitted ? (
+        <>
+          <div className="left-side">
+            <img
+              src="https://i.imgur.com/72MLhx3.jpg"
+              alt="Wedding Invitation"
+              className="portrait-image"
+            />
+          </div>
+          <div className="right-side">
+            <div className="wedding-text">
+              <h2 className="wedding-intro">
+                Ljudi su oni koji trenutke čine posebnima, pozivamo vas da uljepšate naše vjenčanje svojim dolaskom
+              </h2>
+              <p className="wedding-details">
+                11. TRAVNJA 2025.<br />
+                <div className="decorative-elements">&#x2766;&#x2766;&#x2766;</div>
+                <span className="wedding-names">Stella & Zrin</span>
+                <div className="decorative-elements">&#x2766;&#x2766;&#x2766;</div>
+                <br />
+                18:00 Okupljanje pred zgradom Županije u Osijeku<br />
+                19:00 Zoo Hotel Riverside
+              </p>
+
+              <form onSubmit={handleSubmit} className="rsvp-form">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Ime:</td>
+                      <td>
+                        <input
+                          type="text"
+                          placeholder="Ime"
+                          value={firstName}
+                          onChange={(e) => setFirstName(e.target.value)}
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Prezime:</td>
+                      <td>
+                        <input
+                          type="text"
+                          placeholder="Prezime"
+                          value={lastName}
+                          onChange={(e) => setLastName(e.target.value)}
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Dolazite?</td>
+                      <td>
+                        <select
+                          value={isComing}
+                          onChange={(e) => setIsComing(e.target.value)}
+                        >
+                          <option value="">Odaberite</option>
+                          <option value="yes">Da</option>
+                          <option value="no">Ne</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colSpan="2">
+                        <button type="submit">Submit</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </form>
+
+              {message && <p>{message}</p>}
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="left-side">
+            <img
+              src="https://i.imgur.com/a3NI9Vs.jpeg"
+              alt="Thank You"
+              className="portrait-image"
+            />
+          </div>
+          <div className="right-side">
+            <h2>{responseMessage}</h2>
+          </div>
+        </>
+      )}
     </div>
   );
 }
