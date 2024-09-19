@@ -10,6 +10,7 @@ function App() {
   const [message, setMessage] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [responseMessage, setResponseMessage] = useState('');
+  const [responseImage, setResponseImage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,11 +23,13 @@ function App() {
         });
         setFormSubmitted(true);
 
-        // Set response message based on the selection
+        // Set response message and image based on the selection
         if (isComing === 'yes') {
           setResponseMessage('Veselimo se vašem dolasku!');
+          setResponseImage('https://media.istockphoto.com/id/1142467597/vector/champagne-glass-vector-icon.jpg?s=612x612&w=0&k=20&c=6oXG-jkPEqaqgOfiKbgTxHzj7COX53Gku3o52H_KV3Y=');
         } else {
           setResponseMessage('Žao nam je što ne možete doći');
+          setResponseImage('https://t3.ftcdn.net/jpg/01/12/43/90/360_F_112439022_Sft6cXK9GLnzWjjIkVMj2Lt34RcKUpxm.jpg');
         }
       } catch (error) {
         setMessage('Error submitting RSVP. Please try again.');
@@ -34,6 +37,16 @@ function App() {
     } else {
       setMessage('Please complete the form.');
     }
+  };
+
+  const handleReset = () => {
+    setFirstName('');
+    setLastName('');
+    setIsComing('');
+    setFormSubmitted(false);
+    setMessage('');
+    setResponseMessage('');
+    setResponseImage('');
   };
 
   return (
@@ -73,6 +86,7 @@ function App() {
                           placeholder="Ime"
                           value={firstName}
                           onChange={(e) => setFirstName(e.target.value)}
+                          required
                         />
                       </td>
                     </tr>
@@ -84,6 +98,7 @@ function App() {
                           placeholder="Prezime"
                           value={lastName}
                           onChange={(e) => setLastName(e.target.value)}
+                          required
                         />
                       </td>
                     </tr>
@@ -93,6 +108,7 @@ function App() {
                         <select
                           value={isComing}
                           onChange={(e) => setIsComing(e.target.value)}
+                          required
                         >
                           <option value="">Odaberite</option>
                           <option value="yes">Da</option>
@@ -124,6 +140,10 @@ function App() {
           </div>
           <div className="right-side">
             <h2>{responseMessage}</h2>
+            {responseImage && <img src={responseImage} alt="Response" className="response-image" />}
+            <button className="reset-button" onClick={handleReset}>
+              Ako želite opet ispuniti obrazac kliknite ovdje
+            </button>
           </div>
         </>
       )}
