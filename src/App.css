@@ -3,143 +3,155 @@ body {
   margin: 0;
   padding: 0;
   color: #333;
-  height: 100vh; /* Full height */
-  overflow-x: hidden; /* Prevent horizontal overflow */
+  height: 100vh; /* Ensure body takes full height of viewport */
+  overflow-x: hidden;
 }
 
 .container {
-  display: flex; /* Use flexbox for layout */
-  height: 100%; /* Full height */
+  display: flex;
+  height: 100vh; /* Full height for the container */
 }
 
-/* Ensure both sides are equal */
 .left-side,
 .right-side {
-  flex: 1; /* Make both sides equal */
-  display: flex; /* Ensure they can grow equally */
-  min-width: 0; /* Prevent overflow from causing issues */
+  flex: 1; /* Equal flex for left and right */
+  display: flex;
+  min-width: 0; /* Prevent overflow */
 }
 
 .left-side {
-  position: relative; /* Position relative for image */
+  position: relative;
+  flex: 1; /* Ensure the left side takes equal space */
 }
 
 .right-side {
+  flex: 1;
+  display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  color: black; /* Text color */
-  background-image: url('https://static.vecteezy.com/system/resources/previews/013/006/109/non_2x/gold-confetti-isolated-on-white-background-celebrate-illustration-free-vector.jpg');
-  background-repeat: no-repeat; /* Prevent repeating */
-  background-size: cover; /* Cover the entire area */
-  padding: 20px; /* Optional: Add some padding */
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background-image: url('https://i.imgur.com/BtWCq06.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .portrait-image {
   width: 100%;
-  height: auto;
-  max-height: 100vh; /* Ensure it doesn’t exceed viewport height */
-  object-fit: cover;
+  height: 100%; /* Set height to 100% to fill container */
+  object-fit: cover; /* Cover the area without distortion */
 }
 
-/* Wedding Text Styling */
 .wedding-text {
   width: 100%;
   text-align: center;
-  padding: 0 10px; /* Added padding to prevent text from touching edges */
+  padding: 20px; /* Add padding around the text */
 }
 
-/* (Keep the rest of your styles as they are) */
-
-
 .wedding-intro {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 28px; /* Adjusted for better visibility on mobile */
+  font-size: 28px;
   font-weight: 400;
-  color: black; /* Leafy green */
-  margin: 10px 0;
+  color: black;
+  margin: 20px 0; /* Increased margin */
+  padding: 20px;
 }
 
 .wedding-details {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 20px; /* Adjusted for better visibility on mobile */
-  line-height: 1.8;
+  font-size: 30px;
+  line-height: 1.6; /* Maintained line-height for readability */
   color: #333;
-  margin: 20px 0;
+  margin: 20px 0; /* Increased margin between text blocks */
 }
 
-.decorative-elements {
-  font-size: 30px; /* Adjusted for better visibility on mobile */
-  color: black; /* Green for decoration */
-  margin: 10px 0;
+.wedding-info{
+  font-size: 20px;
+  line-height: 1.6; /* Maintained line-height for readability */
+  color: #333;
+  padding-bottom: 20px;
 }
 
-.wedding-names {
-  font-size: 44px; /* Adjusted for better visibility on mobile */
-  font-weight: bold;
-  color: black; /* Green for names */
+.wedding-info2{
+  font-size: 20px;
+  line-height: 1.6; /* Maintained line-height for readability */
+  color: #333;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
-/* Show Form Button */
-.show-form-button {
-  background-color: #7a4b94;
+.wedding-names-image {
+  max-width: 400px; /* Keep max-width for smaller size */
+  height: auto;
+  margin-top: 30px; /* Increased margin to create more space */
+}
+
+.show-form-button,
+.natrag-button {
+  background-color: #57764a;
   color: #fff;
   padding: 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-size: 18px;
   letter-spacing: 2px;
   width: 100%;
-  max-width: 300px; /* Ensure button doesn’t stretch too wide */
+  max-width: 300px;
+  margin: 10px 0; /* Add margin for spacing */
 }
 
-.show-form-button:hover {
-  background-color: #5b3374;
+.show-form-button:hover,
+.natrag-button:hover {
+  background-color: #465e38;
 }
 
-/* Form Styles */
 .rsvp-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(210, 105, 30, 0.9); /* More opaque brown */
+  background: transparent;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  margin: 0 auto; /* Center the form */
-  box-sizing: border-box; /* Include padding in the element's total width and height */
+  width: 80%; 
+  max-width: 100%; 
+  margin: 20px auto; /* Add margin to create space around the form */
+  box-sizing: border-box;
   text-align: center;
+  transition: padding 0.3s ease; /* Smooth transition */
+}
+
+.rsvp-form.guest-selected {
+  padding: 10px; /* Reduce padding when guest is selected */
 }
 
 .rsvp-form input[type="text"],
 .rsvp-form input[type="email"],
 .rsvp-form input[type="number"] {
-  width: calc(100% - 24px); /* Adjust width to account for padding */
+  width: calc(100% - 24px);
 }
 
 .rsvp-form table {
   width: 95%;
-  border-collapse: collapse; /* Collapse table borders */
+  border-collapse: collapse;
 }
 
 .rsvp-form td {
-  padding: 12px; /* Increased padding for better spacing */
+  padding: 12px;
 }
 
-/* Targeting label cells specifically */
 .rsvp-form td:first-child {
   font-family: 'Libre Baskerville', serif;
-  font-size: 20px; /* Larger font size for labels */
-  color: #000000; /* Green for labels */
+  font-size: 20px;
+  color: #000000;
   text-align: left;
 }
 
 input, select, button {
-  width: 100%; /* Full width to ensure proper alignment */
-  margin: 10px 0; /* Adjust margin for better spacing */
+  width: 100%;
+  margin: 10px 0;
   padding: 12px;
   border: 1px solid #333;
   border-radius: 4px;
@@ -148,23 +160,71 @@ input, select, button {
   font-size: 16px;
 }
 
-/* Form button specific styles */
 button[type="submit"] {
-  background-color: #4caf50; /* Green background */
+  background-color: #57764a;
   color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"]:hover {
+  background-color: #465e38;
+}
+
+.reset-button {
+  background-color: #57764a;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-size: 16px;
 }
 
-button[type="submit"]:hover {
-  background-color: #388e3c; /* Darker green on hover */
+.reset-button:hover {
+  background-color: #465e38;
+}
+
+.responseButton {
+  background-color: #57764a; /* Same background color as submit button */
+  color: #fff; /* Text color */
+  padding: 15px; /* Same padding */
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded corners */
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); Shadow for depth */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 18px; /* Font size */
+  letter-spacing: 2px; /* Letter spacing for better readability */
+  width: 100%; /* Full width */
+  max-width: 300px; /* Optional: set max-width to maintain consistency */
+  margin: 10px 0; /* Margin for spacing */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.45); /* Add a shadow underneath the button */
+}
+
+.responseButton:hover {
+  background-color: #465e38; /* Darker shade on hover */
+}
+
+.additional-image {
+  display: block; /* Ensures the image is on a new line */
+  margin: 10px auto; /* Center the image and add some space */
+  max-width: 50%; /* Set max width to 50% of its container */
+  height: auto; /* Keeps aspect ratio */
+  padding-top: 20px;
 }
 
 /* Mobile Styles */
 @media (max-width: 800px) {
   .container {
     flex-direction: column;
-    overflow: auto; /* Allow vertical scrolling */
+    overflow: auto;
   }
 
   .left-side {
@@ -179,50 +239,29 @@ button[type="submit"]:hover {
   .right-side {
     padding: 20px;
     width: 100%;
-    box-sizing: border-box; /* Ensure padding is included in width */
+    box-sizing: border-box;
   }
 
   .rsvp-form {
-    max-width: 100%; /* Ensure form fits within mobile viewport */
+    max-width: 100%;
   }
 }
 
-@media (max-width: 412px) {
-  .wedding-intro {
-    font-size: 24px; /* Adjusted for very small screens */
+/* Large Screen Adjustments */
+@media (min-width: 1200px) {
+  .container {
+    justify-content: center;
   }
 
-  .wedding-details {
-    font-size: 18px; /* Adjusted for very small screens */
+  .right-side {
+    max-width: 50%; /* Maintain full width on large screens */
   }
 
-  .decorative-elements {
-    font-size: 20px; /* Adjusted for very small screens */
+  .left-side {
+    max-width: 50%;
   }
 
-  .wedding-names {
-    font-size: 36px; /* Adjusted for very small screens */
+  .wedding-names-image {
+    max-width: 350px; /* Further reducing the size on large screens */
   }
-
-  .rsvp-form {
-    padding: 15px; /* Adjust padding for very small screens */
-  }
-
-  input, select, button {
-    font-size: 14px; /* Adjust font size for very small screens */
-  }
-}
-
-.reset-button {
-  background-color: #007bff; /* Blue background */
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.reset-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
 }
