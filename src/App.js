@@ -114,14 +114,14 @@ function App() {
                     18:00 Okupljanje pred zgradom Županije u Osijeku<br />
                     19:00 Zoo Hotel Riverside
                   </div>
-                  <button className="responseButton" onClick={() => setIsFormVisible(true)}>Odgovori</button> {/* Button to show the form */}
+                  <button className="responseButton" onClick={() => setIsFormVisible(true)}>ODGOVORI</button> {/* Button to show the form */}
                   <p className="wedding-info2">
                     Molimo da na pozivnicu odgovorite najkasnije do 1. ožujka 2025. godine
                   </p>
                 </>
               ) : ( // Form section
                 <>
-                  <button className="responseButton" onClick={() => setIsFormVisible(false)}>Natrag</button> {/* Button to go back to wedding info */}
+                  <button className="responseButton" onClick={() => setIsFormVisible(false)}>NATRAG</button> {/* Button to go back to wedding info */}
                   {!bringingGuest && (
                     <img src="https://i.imgur.com/H3JiRGH.png" alt="Additional Info" className="additional-image" />
                   )}
@@ -158,25 +158,50 @@ function App() {
                         <tr>
                           <td>Dolazite?</td>
                           <td>
-                            <select
-                              value={isComing}
-                              onChange={(e) => setIsComing(e.target.value)}
-                              required
-                            >
-                              <option value="">Odaberite</option>
-                              <option value="yes">Da</option>
-                              <option value="no">Ne</option>
-                            </select>
+                            <div className="radio-group">
+                              <label className="radio-container">
+                                <input
+                                  type="radio"
+                                  id="yes"
+                                  name="attendance"
+                                  value="yes"
+                                  checked={isComing === 'yes'}
+                                  onChange={(e) => setIsComing(e.target.value)}
+                                  required
+                                />
+                                <div className="custom-radio"></div>
+                                Da
+                              </label>
+                              <label className="radio-container">
+                                <input
+                                  type="radio"
+                                  id="no"
+                                  name="attendance"
+                                  value="no"
+                                  checked={isComing === 'no'}
+                                  onChange={(e) => setIsComing(e.target.value)}
+                                  required
+                                />
+                                <div className="custom-radio"></div>
+                                Ne
+                              </label>
+                            </div>
                           </td>
                         </tr>
                         <tr>
                           <td>Vodite li pratnju?</td>
                           <td>
-                            <input
-                              type="checkbox"
-                              checked={bringingGuest}
-                              onChange={(e) => setBringingGuest(e.target.checked)}
-                            />
+                            <div className="radio-group">
+                              <label className="radio-container">
+                                <input
+                                  type="checkbox"
+                                  checked={bringingGuest}
+                                  onChange={(e) => setBringingGuest(e.target.checked)}
+                                />
+                                <div className="custom-checkbox"></div>
+                                Da
+                              </label>
+                            </div>
                           </td>
                         </tr>
                         {bringingGuest && (
@@ -209,7 +234,7 @@ function App() {
                         )}
                         <tr>
                           <td colSpan="2">
-                            <button type="submit" className="responseButton">Odgovori</button>
+                            <button type="submit" className="responseButton">ODGOVORI</button>
                           </td>
                         </tr>
                       </tbody>
@@ -234,7 +259,7 @@ function App() {
             <h2>{responseMessage}</h2>
             {responseImage && <img src={responseImage} alt="Response" className="response-image" />}
             <button className="responseButton" onClick={handleReset}>
-              Ako želite opet ispuniti obrazac kliknite ovdje
+              AKO ŽELITE OPET ISPUNITI OBRAZAC KLIKNITE OVDJE
             </button>
           </div>
         </>

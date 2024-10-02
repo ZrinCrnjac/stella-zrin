@@ -193,8 +193,7 @@ button[type="submit"]:hover {
   color: #fff; /* Text color */
   padding: 15px; /* Same padding */
   border: none; /* No border */
-  border-radius: 8px; /* Rounded corners */
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); Shadow for depth */
+  border-radius: 18px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
   font-size: 18px; /* Font size */
   letter-spacing: 2px; /* Letter spacing for better readability */
@@ -206,6 +205,8 @@ button[type="submit"]:hover {
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 8px 10px rgba(0, 0, 0, 0.45); /* Add a shadow underneath the button */
+  width: auto;
+  font-family: 'Libre Baskerville', serif;
 }
 
 .responseButton:hover {
@@ -218,6 +219,119 @@ button[type="submit"]:hover {
   max-width: 50%; /* Set max width to 50% of its container */
   height: auto; /* Keeps aspect ratio */
   padding-top: 20px;
+}
+
+.decorative-elements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  max-width: 100%;
+}
+
+/* Hide the default radio buttons */
+input[type="radio"] {
+  display: none;
+}
+
+/* Container for the radio buttons */
+.radio-group {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center the radio buttons */
+  align-items: center; /* Align items vertically centered */
+  margin: 20px 0; /* Optional: Add some vertical spacing around the group */
+}
+
+/* Individual radio button container */
+.radio-container {
+  display: flex;
+  align-items: center;
+  margin: 0 20px; /* Set equal margin on both sides for spacing */
+  font-family: 'Libre Baskerville', serif;
+  font-size: 20px;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Hide the default radio buttons */
+input[type="radio"] {
+  display: none;
+}
+
+/* Custom radio button styles */
+.custom-radio {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 2px solid #57764a;
+  display: inline-block;
+  margin-right: 8px;
+  border-radius: 3px; /* Keep it squared */
+  position: relative;
+  cursor: pointer; /* Change cursor to pointer */
+  align-items: center;
+}
+
+/* Style for the checkmark when the radio button is selected */
+.custom-radio::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  border: solid #57764a; /* Green color for the checkmark */
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  top: 1px;
+  left: 7px;
+  display: none;
+}
+
+/* Show checkmark when the radio button is checked */
+input[type="radio"]:checked + .custom-radio::after {
+  display: block;
+}
+
+/* Ensure both options are side by side even on smaller screens */
+td {
+  vertical-align: middle; /* Ensure cells are vertically centered */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Hide the default checkbox */
+input[type="checkbox"] {
+  display: none; /* Hide the default checkbox */
+}
+
+/* Custom checkbox styles */
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 2px solid #57764a;
+  display: inline-block;
+  margin-right: 8px;
+  border-radius: 3px; /* Keep it squared */
+  position: relative;
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Style for the checkmark when the checkbox is checked */
+.custom-checkbox::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  border: solid #57764a; /* Green color for the checkmark */
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  top: 1px;
+  left: 7px;
+  display: none;
+}
+
+/* Show checkmark when the checkbox is checked */
+input[type="checkbox"]:checked + .custom-checkbox::after {
+  display: block; /* Show the checkmark */
 }
 
 /* Mobile Styles */
@@ -244,6 +358,17 @@ button[type="submit"]:hover {
 
   .rsvp-form {
     max-width: 100%;
+  }
+
+  .radio-container {
+    margin-right: 20px; /* Adjust spacing between buttons for mobile */
+  }
+
+  td {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%; /* Make sure it spreads across the full width on mobile */
   }
 }
 
