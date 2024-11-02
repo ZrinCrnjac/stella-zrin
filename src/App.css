@@ -36,6 +36,7 @@ body {
   background-position: center top;
   background-attachment: fixed;
   background-size: cover;
+  box-sizing: border-box;
 }
 
 .portrait-image {
@@ -63,6 +64,7 @@ body {
   line-height: 1.6; /* Maintained line-height for readability */
   color: #333;
   margin: 20px 0; /* Increased margin between text blocks */
+  margin-bottom: 0px;
 }
 
 .wedding-info{
@@ -117,7 +119,7 @@ body {
   border-radius: 8px;
   width: 80%; 
   max-width: 100%; 
-  margin: 20px auto; /* Add margin to create space around the form */
+  margin: 0px auto; /* Add margin to create space around the form */
   box-sizing: border-box;
   text-align: center;
   transition: padding 0.3s ease; /* Smooth transition */
@@ -389,4 +391,50 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   .wedding-names-image {
     max-width: 350px; /* Further reducing the size on large screens */
   }
+}
+
+.back-button {
+  display: flex; /* Aligns the arrow and text horizontally */
+  align-items: center; /* Vertically centers the elements */
+  font-size: 24px; /* Increases font size for better visibility */
+  color: #57764a; /* Matches theme color */
+  cursor: pointer; /* Hand cursor on hover */
+  text-decoration: none; /* Removes underline */
+  padding-left: 20px; /* Adds space from the left edge */
+  margin-bottom: 20px; /* Adds some space below the button */
+  font-family: 'Libre Baskerville', serif; /* Matches font style */
+  border: none;
+  outline: none;
+}
+
+.back-button svg {
+  font-size: 28px; /* Increases arrow size */
+  margin-right: 8px; /* Space between arrow and text */
+  fill: #57764a; /* Arrow color */
+}
+
+.back-button:hover {
+  color: #465e38; /* Darkens color on hover */
+}
+
+.back-button svg:hover {
+  fill: #465e38; /* Darkens arrow on hover */
+}
+
+.response-image {
+  max-width: 60%; /* Adjust the image size */
+  height: auto; /* Keep aspect ratio */
+  margin-top: 20px; /* Space above the image */
+}
+
+.response-message {
+  font-family: 'Libre Baskerville', serif;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  color: #57764a;
+}
+
+.response-button{
+  font-family: 'Libre Baskerville', serif;
 }

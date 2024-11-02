@@ -58,7 +58,7 @@ function App() {
         // Set response message based on attendance status
         if (isComing === 'yes') {
           setResponseMessage('Veselimo se vašem dolasku!');
-          setResponseImage('https://media.istockphoto.com/id/1142467597/vector/champagne-glass-vector-icon.jpg?s=612x612&w=0&k=20&c=6oXG-jkPEqaqgOfiKbgTxHzj7COX53Gku3o52H_KV3Y=');
+          setResponseImage('https://i.imgur.com/1IVRbrN.png');
         } else {
           setResponseMessage('Žao nam je što ne možete doći');
           setResponseImage('https://t3.ftcdn.net/jpg/01/12/43/90/360_F_112439022_Sft6cXK9GLnzWjjIkVMj2Lt34RcKUpxm.jpg');
@@ -111,7 +111,7 @@ function App() {
                     <br />
                   </p>
                   <div className="wedding-info">
-                    18:00 Okupljanje pred zgradom Županije u Osijeku<br />
+                    17:45 Okupljanje pred zgradom Županije u Osijeku<br />
                     19:00 Zoo Hotel Riverside
                   </div>
                   <button className="responseButton" onClick={() => setIsFormVisible(true)}>ODGOVORI</button> {/* Button to show the form */}
@@ -121,7 +121,17 @@ function App() {
                 </>
               ) : ( // Form section
                 <>
-                  <button className="responseButton" onClick={() => setIsFormVisible(false)}>NATRAG</button> {/* Button to go back to wedding info */}
+                  <button className="back-button" onClick={() => setIsFormVisible(false)}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24" /* Size will inherit from CSS */
+                      height="24" /* Size will inherit from CSS */
+                    >
+                      <path d="M15 19l-7-7 7-7" /> {/* Arrow path */}
+                    </svg>
+                    NATRAG
+                  </button>
                   {!bringingGuest && (
                     <img src="https://i.imgur.com/H3JiRGH.png" alt="Additional Info" className="additional-image" />
                   )}
@@ -256,7 +266,7 @@ function App() {
             />
           </div>
           <div className="right-side">
-            <h2>{responseMessage}</h2>
+            <h2 className="response-message">{responseMessage}</h2>
             {responseImage && <img src={responseImage} alt="Response" className="response-image" />}
             <button className="responseButton" onClick={handleReset}>
               AKO ŽELITE OPET ISPUNITI OBRAZAC KLIKNITE OVDJE
