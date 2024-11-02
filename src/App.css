@@ -492,3 +492,55 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   font-size: 20px;
   padding-top: 20px;
 }
+
+.no-image-class {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* Stacks elements vertically */
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* Ensures it overlays other content */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.no-image-class p {
+  font-size: 2vw; /* Responsive font size */
+  font-family: 'Libre Baskerville', serif;
+  text-align: center;
+  max-width: 90%;
+  padding: 10px 20px;
+  margin: 0;
+  font-family: 'Libre Baskerville', serif;
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  color: #000;
+  font-size: 30px;
+  padding-top: 60px;
+}
+
+.no-image-class a{
+  font-family: 'Libre Baskerville', serif;
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  color: #57764a;
+  font-size: 30px;
+  padding-top: 60px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .no-image-class {
+    padding: 10px;
+  }
+
+  .no-image-class p {
+    font-size: 5vw; /* Larger text for smaller screens */
+  }
+}

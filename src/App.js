@@ -14,6 +14,7 @@ function App() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [responseMessage, setResponseMessage] = useState('');
   const [responseImage, setResponseImage] = useState('');
+  const [responseImageLeft, setResponseImageLeft] = useState('');
   
   const containerRef = useRef(null);
 
@@ -70,10 +71,12 @@ function App() {
           scrollToTop();
           setResponseMessage('Veselimo se vašem dolasku!');
           setResponseImage('');
+          setResponseImageLeft('https://i.imgur.com/a3NI9Vs.jpeg');
         } else {
           scrollToTop();
           setResponseMessage('Žao nam je što ne možete doći');
           setResponseImage('');
+          setResponseImageLeft('');
         }
       } catch (error) {
         console.error("Error submitting RSVP:", error); // Log the error for debugging
@@ -94,6 +97,7 @@ function App() {
     setFormSubmitted(false);
     setResponseMessage('');
     setResponseImage('');
+    setResponseImageLeft('');
     setIsFormVisible(false); // Reset form visibility
     scrollToTop();
   };
@@ -275,13 +279,9 @@ function App() {
       ) : (
         <>
           <div className="left-side">
-            <img
-              src="https://i.imgur.com/a3NI9Vs.jpeg"
-              alt="Thank You"
-              className="portrait-image"
-            />
+            {responseImageLeft && <img src={responseImageLeft} alt="Thank You" className="portrait-image" />}
           </div>
-          <div className="right-side">
+          <div className={`${responseImageLeft ? 'right-side' : 'no-image-class'}`}>
           <p className="response-message">{responseMessage}</p>
           <p className="wedding-details-last-page">
               11. TRAVNJA 2025.<br />
