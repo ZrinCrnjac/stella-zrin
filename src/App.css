@@ -424,17 +424,37 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 .response-image {
   max-width: 60%; /* Adjust the image size */
   height: auto; /* Keep aspect ratio */
-  margin-top: 20px; /* Space above the image */
+  margin-top: 0px; /* Space above the image */
 }
 
 .response-message {
   font-family: 'Libre Baskerville', serif;
   width: 100%;
   text-align: center;
-  padding: 20px;
-  color: #57764a;
+  padding: 0px;
+  color: #000;
+  font-size: 25px;
 }
 
-.response-button{
+.response-text{
   font-family: 'Libre Baskerville', serif;
+}
+
+.response-message-2{
+  font-family: 'Libre Baskerville', serif;
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  color: #57764a;
+  font-size: 20px;
+}
+
+.response-message-black{
+  font-family: 'Libre Baskerville', serif;
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  color: #000;
+  font-size: 20px;
+  padding-top: 20px;
 }

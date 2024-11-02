@@ -61,7 +61,7 @@ function App() {
           setResponseImage('https://i.imgur.com/1IVRbrN.png');
         } else {
           setResponseMessage('Žao nam je što ne možete doći');
-          setResponseImage('https://t3.ftcdn.net/jpg/01/12/43/90/360_F_112439022_Sft6cXK9GLnzWjjIkVMj2Lt34RcKUpxm.jpg');
+          setResponseImage('');
         }
       } catch (error) {
         console.error("Error submitting RSVP:", error); // Log the error for debugging
@@ -266,11 +266,9 @@ function App() {
             />
           </div>
           <div className="right-side">
-            <h2 className="response-message">{responseMessage}</h2>
+            <p className="response-message">{responseMessage}</p>
             {responseImage && <img src={responseImage} alt="Response" className="response-image" />}
-            <button className="responseButton" onClick={handleReset}>
-              AKO ŽELITE OPET ISPUNITI OBRAZAC KLIKNITE OVDJE
-            </button>
+              <p className="response-message-black">AKO ŽELITE OPET ISPUNITI OBRAZAC KLIKNITE <a href="#" className="response-message-2" onClick={handleReset}>OVDJE</a></p>
           </div>
         </>
       )}
