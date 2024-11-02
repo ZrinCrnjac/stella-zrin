@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './App.css';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from './index';
@@ -15,6 +15,14 @@ function App() {
   const [responseMessage, setResponseMessage] = useState('');
   const [responseImage, setResponseImage] = useState('');
   
+  const containerRef = useRef(null);
+
+  const scrollToTop = () => {
+    if (containerRef.current){
+      containerRef.current.scrollTo(0, 0);
+    }
+  };
+
   // New state variable to toggle the form visibility
   const [isFormVisible, setIsFormVisible] = useState(false);
 
@@ -54,12 +62,16 @@ function App() {
   
         // Set form submission state
         setFormSubmitted(true);
+
+        scrollToTop();
   
         // Set response message based on attendance status
         if (isComing === 'yes') {
+          scrollToTop();
           setResponseMessage('Veselimo se vašem dolasku!');
           setResponseImage('');
         } else {
+          scrollToTop();
           setResponseMessage('Žao nam je što ne možete doći');
           setResponseImage('');
         }
@@ -83,10 +95,11 @@ function App() {
     setResponseMessage('');
     setResponseImage('');
     setIsFormVisible(false); // Reset form visibility
+    scrollToTop();
   };
 
   return (
-    <div className="container">
+    <div className="container" ref={containerRef}>
       {!formSubmitted ? (
         <>
           <div className="left-side">
@@ -114,7 +127,10 @@ function App() {
                     17:45 Okupljanje pred zgradom Županije u Osijeku<br />
                     19:00 Zoo Hotel Riverside
                   </div>
-                  <button className="responseButton" onClick={() => setIsFormVisible(true)}>ODGOVORI</button> {/* Button to show the form */}
+                  <button className="responseButton" onClick={() => {
+                    setIsFormVisible(true);
+                    scrollToTop();
+                  }}>ODGOVORI</button> {/* Button to show the form */}
                   <p className="wedding-info2">
                     Molimo da na pozivnicu odgovorite najkasnije do 1. ožujka 2025. godine
                   </p>
