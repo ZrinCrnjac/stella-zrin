@@ -266,6 +266,13 @@ function App() {
             />
           </div>
           <div className="right-side">
+          <p className="wedding-details">
+              11. TRAVNJA 2025.<br />
+              <div className="decorative-elements">
+                <img src="https://i.imgur.com/CShKlBl.png" alt="Stella and Zrin" className="wedding-names-image" />
+              </div>
+              <br />
+            </p>
             <p className="response-message">{responseMessage}</p>
             {responseImage && <img src={responseImage} alt="Response" className="response-image" />}
               <p className="response-message-black">AKO ŽELITE OPET ISPUNITI OBRAZAC KLIKNITE <a href="#" className="response-message-2" onClick={handleReset}>OVDJE</a></p>
