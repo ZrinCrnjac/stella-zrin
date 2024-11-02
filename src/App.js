@@ -58,7 +58,7 @@ function App() {
         // Set response message based on attendance status
         if (isComing === 'yes') {
           setResponseMessage('Veselimo se vašem dolasku!');
-          setResponseImage('https://i.imgur.com/1IVRbrN.png');
+          setResponseImage('');
         } else {
           setResponseMessage('Žao nam je što ne možete doći');
           setResponseImage('');
@@ -266,14 +266,14 @@ function App() {
             />
           </div>
           <div className="right-side">
-          <p className="wedding-details">
+          <p className="response-message">{responseMessage}</p>
+          <p className="wedding-details-last-page">
               11. TRAVNJA 2025.<br />
-              <div className="decorative-elements">
-                <img src="https://i.imgur.com/CShKlBl.png" alt="Stella and Zrin" className="wedding-names-image" />
+              <div className="decorative-elements-last-page">
+                <img src="https://i.imgur.com/CShKlBl.png" alt="Stella and Zrin" className="wedding-names-image-last-page" />
               </div>
               <br />
             </p>
-            <p className="response-message">{responseMessage}</p>
             {responseImage && <img src={responseImage} alt="Response" className="response-image" />}
               <p className="response-message-black">AKO ŽELITE OPET ISPUNITI OBRAZAC KLIKNITE <a href="#" className="response-message-2" onClick={handleReset}>OVDJE</a></p>
           </div>

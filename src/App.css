@@ -69,6 +69,16 @@ body {
   text-align: center;
 }
 
+.wedding-details-last-page {
+  font-size: 30px;
+  line-height: 1.6; /* Maintained line-height for readability */
+  color: #333;
+  margin: 20px 0; /* Increased margin between text blocks */
+  margin-bottom: 0px;
+  padding-top: 15px;
+  text-align: center;
+}
+
 .wedding-info{
   font-size: 20px;
   line-height: 1.6; /* Maintained line-height for readability */
@@ -88,6 +98,12 @@ body {
   max-width: 400px; /* Keep max-width for smaller size */
   height: auto;
   margin-top: 30px; /* Increased margin to create more space */
+}
+
+.wedding-names-image-last-page {
+  max-width: 400px; /* Keep max-width for smaller size */
+  height: auto;
+  margin-top: 0px; /* Increased margin to create more space */
 }
 
 .show-form-button,
@@ -233,6 +249,15 @@ button[type="submit"]:hover {
   max-width: 100%;
 }
 
+.decorative-elements-last-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  max-width: 100%;
+  padding-top: 0px;
+}
+
 /* Hide the default radio buttons */
 input[type="radio"] {
   display: none;
@@ -374,6 +399,12 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     justify-content: space-around;
     width: 100%; /* Make sure it spreads across the full width on mobile */
   }
+
+  .response-image {
+    max-width: 100%; /* Adjust the image size */
+    height: auto; /* Keep aspect ratio */
+    margin-top: 0px; /* Space above the image */
+  }
 }
 
 /* Large Screen Adjustments */
@@ -434,6 +465,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   width: 100%;
   text-align: center;
   padding: 0px;
+  padding-bottom: 10px;
   color: #000;
   font-size: 25px;
 }
