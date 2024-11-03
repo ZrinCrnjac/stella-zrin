@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from './index';
@@ -101,6 +101,14 @@ function App() {
     setIsFormVisible(false); // Reset form visibility
     scrollToTop();
   };
+
+  useEffect(() => {
+    if (isComing !== 'yes') {
+      setBringingGuest(false);
+      setGuestFirstName('');
+      setGuestLastName('');
+    }
+  }, [isComing]);
 
   return (
     <div className="container" ref={containerRef}>
@@ -227,6 +235,7 @@ function App() {
                                   type="checkbox"
                                   checked={bringingGuest}
                                   onChange={(e) => setBringingGuest(e.target.checked)}
+                                  disabled={isComing !== 'yes'} // Disable unless 'Da' is selected for attendance
                                 />
                                 <div className="custom-checkbox"></div>
                                 Da
@@ -241,7 +250,7 @@ function App() {
                               <td>
                                 <input
                                   type="text"
-                                  placeholder="Ime pratnje"
+                                  placeholder=""
                                   value={guestFirstName}
                                   onChange={(e) => setGuestFirstName(e.target.value)}
                                   required
@@ -253,7 +262,7 @@ function App() {
                               <td>
                                 <input
                                   type="text"
-                                  placeholder="Prezime pratnje"
+                                  placeholder=""
                                   value={guestLastName}
                                   onChange={(e) => setGuestLastName(e.target.value)}
                                   required

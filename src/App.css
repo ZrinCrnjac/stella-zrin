@@ -557,7 +557,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   text-align: center;
   padding: 0px;
   color: #57764a;
-  font-size: 16px;
+  font-size: 30px;
   padding-top: 60px;
 }
 
@@ -582,4 +582,28 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   .response-message-2{
     font-size: 16px;
   }
+}
+
+/* Style for the disabled checkbox */
+input[type="checkbox"]:disabled + .custom-checkbox {
+  background-color: #ddd; /* Light gray background to indicate disabled state */
+  border-color: #aaa; /* Change border color to a darker gray */
+  cursor: not-allowed; /* Change cursor to indicate non-interactive state */
+  position: relative;
+}
+
+/* Optional: Add a "not-allowed" overlay when disabled */
+input[type="checkbox"]:disabled + .custom-checkbox::before {
+  content: ""; /* Use an "X" symbol or other indicator */
+  color: #aaa; /* Faded color for the symbol */
+  font-size: 16px; /* Adjust size for visibility */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Disabled label styling */
+.radio-container input[type="checkbox"]:disabled + .custom-checkbox + label {
+  color: #aaa; /* Lighten label text to indicate disabled state */
 }
