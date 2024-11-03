@@ -52,12 +52,12 @@ body {
 }
 
 .wedding-intro {
-  font-size: 28px;
+  font-size: 58px;
   font-weight: 400;
-  color: black;
+  color: #57764a;
   margin: 20px 0; /* Increased margin */
   padding: 20px;
-  font-family: "Libre Baskerville", serif;
+  font-family: "Corinthia", serif;
 }
 
 .wedding-details {
@@ -67,10 +67,11 @@ body {
   margin: 20px 0; /* Increased margin between text blocks */
   margin-bottom: 0px;
   text-align: center;
+  padding-top: 10px;
 }
 
 .wedding-details-last-page {
-  font-size: 30px;
+  font-size: 20px;
   line-height: 1.6; /* Maintained line-height for readability */
   color: #333;
   margin: 20px 0; /* Increased margin between text blocks */
@@ -83,15 +84,15 @@ body {
   font-size: 20px;
   line-height: 1.6; /* Maintained line-height for readability */
   color: #333;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
 
 .wedding-info2{
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.6; /* Maintained line-height for readability */
   color: #333;
   padding-bottom: 20px;
-  padding-top: 20px;
+  padding-top: 40px;
 }
 
 .wedding-names-image {
@@ -245,7 +246,7 @@ button[type="submit"]:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 0px;
   max-width: 100%;
 }
 
@@ -381,6 +382,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 
   .right-side {
     padding: 20px;
+    padding-top: 0px;
     width: 100%;
     box-sizing: border-box;
   }
@@ -426,6 +428,29 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   }
 }
 
+@media (max-width: 1000px){
+  .wedding-intro{
+    font-size: 44px;
+    font-weight: 400;
+    color: #57764a;
+    margin: 20px 0; /* Increased margin */
+    padding: 20px;
+    font-family: "Corinthia", serif;
+  }
+
+  .wedding-info2{
+    font-size: 16px;
+    line-height: 1.6; /* Maintained line-height for readability */
+    color: #333;
+    padding-bottom: 20px;
+    padding-top: 40px;
+  }
+
+  .response-message{
+    padding-top: 60px;
+  }
+}
+
 .back-button {
   display: flex; /* Aligns the arrow and text horizontally */
   align-items: center; /* Vertically centers the elements */
@@ -466,6 +491,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   text-align: center;
   padding: 0px;
   padding-bottom: 10px;
+  padding-top: 20px;
   color: #000;
   font-size: 25px;
 }
@@ -506,19 +532,20 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   z-index: 10; /* Ensures it overlays other content */
   padding: 20px;
   box-sizing: border-box;
+  background-image: url('https://i.imgur.com/BtWCq06.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .no-image-class p {
-  font-size: 2vw; /* Responsive font size */
   font-family: 'Libre Baskerville', serif;
   text-align: center;
   max-width: 90%;
   padding: 10px 20px;
   margin: 0;
-  font-family: 'Libre Baskerville', serif;
   width: 100%;
-  text-align: center;
-  padding: 0px;
   color: #000;
   font-size: 30px;
   padding-top: 60px;
@@ -530,7 +557,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   text-align: center;
   padding: 0px;
   color: #57764a;
-  font-size: 30px;
+  font-size: 16px;
   padding-top: 60px;
 }
 
@@ -540,7 +567,19 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     padding: 10px;
   }
 
+  .response-message-black{
+    font-size: 16px !important;
+  }
+
   .no-image-class p {
     font-size: 5vw; /* Larger text for smaller screens */
+  }
+
+  .no-image-class a {
+    font-size: 16px;
+  }
+
+  .response-message-2{
+    font-size: 16px;
   }
 }

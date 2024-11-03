@@ -69,12 +69,12 @@ function App() {
         // Set response message based on attendance status
         if (isComing === 'yes') {
           scrollToTop();
-          setResponseMessage('Veselimo se vašem dolasku!');
+          setResponseMessage('Veselimo se tvom dolasku!');
           setResponseImage('');
           setResponseImageLeft('https://i.imgur.com/a3NI9Vs.jpeg');
         } else {
           scrollToTop();
-          setResponseMessage('Žao nam je što ne možete doći');
+          setResponseMessage('Žao nam je što ne možeš doći');
           setResponseImage('');
           setResponseImageLeft('');
         }
@@ -118,7 +118,7 @@ function App() {
               {!isFormVisible ? ( // Toggle between wedding info and form
                 <>
                   <h2 className="wedding-intro">
-                    Ljudi su oni koji trenutke čine posebnima, pozivamo vas da uljepšate naše vjenčanje svojim dolaskom
+                    Ljudi su oni koji trenutke čine posebnima, pozivamo te da uljepšaš naše vjenčanje svojim dolaskom
                   </h2>
                   <p className="wedding-details">
                     11. TRAVNJA 2025.<br />
@@ -136,7 +136,7 @@ function App() {
                     scrollToTop();
                   }}>ODGOVORI</button> {/* Button to show the form */}
                   <p className="wedding-info2">
-                    Molimo da na pozivnicu odgovorite najkasnije do 1. ožujka 2025. godine
+                    Molimo te da na pozivnicu odgovoriš najkasnije do 1. ožujka 2025. godine
                   </p>
                 </>
               ) : ( // Form section
@@ -186,7 +186,7 @@ function App() {
                           </td>
                         </tr>
                         <tr>
-                          <td>Dolazite?</td>
+                          <td>Dolaziš?</td>
                           <td>
                             <div className="radio-group">
                               <label className="radio-container">
@@ -219,7 +219,7 @@ function App() {
                           </td>
                         </tr>
                         <tr>
-                          <td>Vodite li pratnju?</td>
+                          <td>Vodiš li pratnju?</td>
                           <td>
                             <div className="radio-group">
                               <label className="radio-container">
@@ -291,7 +291,7 @@ function App() {
               <br />
             </p>
             {responseImage && <img src={responseImage} alt="Response" className="response-image" />}
-              <p className="response-message-black">AKO ŽELITE OPET ISPUNITI OBRAZAC KLIKNITE <a href="#" className="response-message-2" onClick={handleReset}>OVDJE</a></p>
+              <p className="response-message-black">AKO ŽELIŠ OPET ISPUNITI OBRAZAC KLIKNI <a href="#" className="response-message-2" onClick={handleReset}>OVDJE</a></p>
           </div>
         </>
       )}
