@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Admin from './Admin';
+//import Admin from './Admin';
 
 // Import Firebase functions as named imports
 import { initializeApp } from 'firebase/app';
@@ -15,6 +15,7 @@ import firebaseConfig from './firebaseConfig';
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const LazyAdmin = lazy(() => import ('./Admin') .then((module) => ({default: module.Admin})));
 
 // Export `db` for use in other files
 export { db };
@@ -25,7 +26,7 @@ root.render(
     <Router>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin" element={<LazyAdmin />} />
       </Routes>
     </Router>
   </React.StrictMode>

@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from './index';
+import emailjs from 'emailjs-com'
+import { sendRSVPEmail } from './emailService';
 
 function App() {
   const [firstName, setFirstName] = useState('');
@@ -60,6 +62,16 @@ function App() {
             return; // Stop execution if guest information is incomplete
           }
         }
+
+        var rsvpParams = {
+          firstName: firstName,
+          lastName: lastName,
+          isComing: isComing === 'yes',
+          guestFirstName: guestFirstName,
+          guestLastName: guestLastName
+        }
+
+        sendRSVPEmail(rsvpParams);
   
         // Set form submission state
         setFormSubmitted(true);

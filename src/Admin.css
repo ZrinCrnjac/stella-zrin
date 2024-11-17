@@ -69,6 +69,11 @@ html, body {
   
   /* Mobile Styles */
   @media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        overflow: auto;
+      }
+      
     .admin-container {
       padding: 15px;
     }

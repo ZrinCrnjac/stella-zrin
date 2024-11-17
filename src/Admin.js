@@ -23,6 +23,7 @@ function Admin() {
   return (
     <div className="admin-container">
       <h1>RSVP Responses</h1>
+      <p>Total Count: {rsvps.length}</p>
       <div className="rsvp-list">
         {rsvps.length > 0 ? (
           rsvps.map((rsvp, index) => (
@@ -47,4 +48,4 @@ function Admin() {
   );
 }
 
-export default Admin;
+export {Admin};
