@@ -687,6 +687,11 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   .response-message-black{
     font-size: 16px !important;
     padding-top: 0;
+    padding-bottom: 30px;
+  }
+
+  .no-image-class p:first-child{
+    font-size: 22px;
   }
 
   .no-image-class p {
