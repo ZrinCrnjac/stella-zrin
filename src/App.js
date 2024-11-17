@@ -71,7 +71,7 @@ function App() {
           scrollToTop();
           setResponseMessage('Veselimo se tvom dolasku!');
           setResponseImage('');
-          setResponseImageLeft('https://i.imgur.com/a3NI9Vs.jpeg');
+          setResponseImageLeft('https://i.imgur.com/undgumr.png');
         } else {
           scrollToTop();
           setResponseMessage('Žao nam je što ne možeš doći');
@@ -116,7 +116,7 @@ function App() {
         <>
           <div className="left-side">
             <img
-              src="https://i.imgur.com/72MLhx3.jpg"
+              src="https://i.imgur.com/Bgb77go.png"
               alt="Wedding Invitation"
               className="portrait-image"
             />
@@ -130,11 +130,10 @@ function App() {
                   </h2>
                   <p className="wedding-details">
                     11. TRAVNJA 2025.<br />
-                    <div className="decorative-elements">
+                  </p>
+                  <div className="decorative-elements">
                       <img src="https://i.imgur.com/CShKlBl.png" alt="Stella and Zrin" className="wedding-names-image" />
                     </div>
-                    <br />
-                  </p>
                   <div className="wedding-info">
                     17:45 Okupljanje pred zgradom Županije u Osijeku<br />
                     19:00 Zoo Hotel Riverside

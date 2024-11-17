@@ -3,7 +3,17 @@ body {
   margin: 0;
   padding: 0;
   color: #333;
-  height: 100vh; /* Ensure body takes full height of viewport */
+  height: 100%; /* Ensure body takes full height of viewport */
+  overflow: hidden;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent unintended scrolling */
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
@@ -61,13 +71,14 @@ body {
 }
 
 .wedding-details {
-  font-size: 30px;
+  font-size: 20px;
   line-height: 1.6; /* Maintained line-height for readability */
   color: #333;
   margin: 20px 0; /* Increased margin between text blocks */
   margin-bottom: 0px;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 0px;
+  padding-bottom: 20px;
 }
 
 .wedding-details-last-page {
@@ -84,11 +95,11 @@ body {
   font-size: 20px;
   line-height: 1.6; /* Maintained line-height for readability */
   color: #333;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .wedding-info2{
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6; /* Maintained line-height for readability */
   color: #333;
   padding-bottom: 20px;
@@ -98,7 +109,8 @@ body {
 .wedding-names-image {
   max-width: 400px; /* Keep max-width for smaller size */
   height: auto;
-  margin-top: 30px; /* Increased margin to create more space */
+  margin-top: 0px; /* Increased margin to create more space */
+  padding-bottom: 0px;
 }
 
 .wedding-names-image-last-page {
@@ -228,6 +240,7 @@ button[type="submit"]:hover {
   box-shadow: 0 8px 10px rgba(0, 0, 0, 0.45); /* Add a shadow underneath the button */
   width: auto;
   font-family: 'Libre Baskerville', serif;
+  font-size: 16px;
 }
 
 .responseButton:hover {
@@ -248,6 +261,7 @@ button[type="submit"]:hover {
   align-items: center;
   margin-top: 0px;
   max-width: 100%;
+  padding-bottom: 20px;
 }
 
 .decorative-elements-last-page {
@@ -359,6 +373,34 @@ input[type="checkbox"] {
   display: none;
 }
 
+.back-button {
+  display: flex; /* Aligns the arrow and text horizontally */
+  align-items: center; /* Vertically centers the elements */
+  font-size: 24px; /* Increases font size for better visibility */
+  color: #57764a; /* Matches theme color */
+  cursor: pointer; /* Hand cursor on hover */
+  text-decoration: none; /* Removes underline */
+  padding-left: 20px; /* Adds space from the left edge */
+  margin-bottom: 20px; /* Adds some space below the button */
+  font-family: 'Libre Baskerville', serif; /* Matches font style */
+  border: none;
+  outline: none;
+}
+
+.back-button svg {
+  font-size: 28px; /* Increases arrow size */
+  margin-right: 8px; /* Space between arrow and text */
+  fill: #57764a; /* Arrow color */
+}
+
+.back-button:hover {
+  color: #465e38; /* Darkens color on hover */
+}
+
+.back-button svg:hover {
+  fill: #465e38; /* Darkens arrow on hover */
+}
+
 /* Show checkmark when the checkbox is checked */
 input[type="checkbox"]:checked + .custom-checkbox::after {
   display: block; /* Show the checkmark */
@@ -389,6 +431,14 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 
   .rsvp-form {
     max-width: 100%;
+    margin: auto; /* Ensure horizontal centering */
+    padding: 10px; /* Reduce padding for better fit */
+    width: 100%;
+  }
+
+  .rsvp-form input, 
+  .rsvp-form button {
+    width: 100%; /* Ensure inputs and buttons span the full width of the form */
   }
 
   .radio-container {
@@ -399,13 +449,87 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     display: inline-flex;
     align-items: center;
     justify-content: space-around;
-    width: 100%; /* Make sure it spreads across the full width on mobile */
+    width: 90%; /* Make sure it spreads across the full width on mobile */
+  }
+
+  tbody {
+    width: 100%;
+    display: block; /* Ensure it behaves like a block element */
+    overflow: hidden; /* Prevent child elements from overflowing */
+    text-align: center; /* Center contents within */
+  }
+
+  table {
+    width: 100%; /* Ensure the table takes the full available width */
+    border-collapse: collapse; /* Prevent unexpected spacing */
   }
 
   .response-image {
     max-width: 100%; /* Adjust the image size */
     height: auto; /* Keep aspect ratio */
     margin-top: 0px; /* Space above the image */
+  }
+
+  .wedding-details {
+    font-size: 18px;
+    line-height: 1.6; /* Maintained line-height for readability */
+    color: #333;
+    margin: 20px 0; /* Increased margin between text blocks */
+    margin-bottom: 0px;
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .wedding-details-last-page {
+    font-size: 18px;
+    line-height: 1.6; /* Maintained line-height for readability */
+    color: #333;
+    margin: 20px 0; /* Increased margin between text blocks */
+    margin-bottom: 0px;
+    padding-top: 15px;
+    text-align: center;
+  }
+
+  .wedding-info{
+    font-size: 18px;
+    line-height: 1.6; /* Maintained line-height for readability */
+    color: #333;
+    padding-bottom: 20px;
+  }
+
+  .wedding-info2{
+    font-size: 16px;
+    line-height: 1.6; /* Maintained line-height for readability */
+    color: #333;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  .back-button {
+    display: flex; /* Aligns the arrow and text horizontally */
+    align-items: center; /* Vertically centers the elements */
+    font-size: 18px; /* Increases font size for better visibility */
+    color: #57764a; /* Matches theme color */
+    cursor: pointer; /* Hand cursor on hover */
+    text-decoration: none; /* Removes underline */
+    padding-left: 20px; /* Adds space from the left edge */
+    margin-bottom: 0px; /* Adds some space below the button */
+    font-family: 'Libre Baskerville', serif; /* Matches font style */
+    border: none;
+    outline: none;
+  }
+
+  .wedding-names-image {
+    max-width: 300px; /* Keep max-width for smaller size */
+    height: auto;
+    margin-top: 0px; /* Increased margin to create more space */
+    padding-bottom: 0px;
+  }
+
+  .wedding-names-image-last-page{
+    max-width: 350px;
+    padding-bottom: 0;
+    padding-top: 20px;
   }
 }
 
@@ -443,40 +567,12 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     line-height: 1.6; /* Maintained line-height for readability */
     color: #333;
     padding-bottom: 20px;
-    padding-top: 40px;
+    padding-top: 20px;
   }
 
   .response-message{
     padding-top: 60px;
   }
-}
-
-.back-button {
-  display: flex; /* Aligns the arrow and text horizontally */
-  align-items: center; /* Vertically centers the elements */
-  font-size: 24px; /* Increases font size for better visibility */
-  color: #57764a; /* Matches theme color */
-  cursor: pointer; /* Hand cursor on hover */
-  text-decoration: none; /* Removes underline */
-  padding-left: 20px; /* Adds space from the left edge */
-  margin-bottom: 20px; /* Adds some space below the button */
-  font-family: 'Libre Baskerville', serif; /* Matches font style */
-  border: none;
-  outline: none;
-}
-
-.back-button svg {
-  font-size: 28px; /* Increases arrow size */
-  margin-right: 8px; /* Space between arrow and text */
-  fill: #57764a; /* Arrow color */
-}
-
-.back-button:hover {
-  color: #465e38; /* Darkens color on hover */
-}
-
-.back-button svg:hover {
-  fill: #465e38; /* Darkens arrow on hover */
 }
 
 .response-image {
@@ -490,10 +586,10 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   width: 100%;
   text-align: center;
   padding: 0px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   padding-top: 20px;
   color: #000;
-  font-size: 25px;
+  font-size: 24px;
 }
 
 .response-text{
@@ -506,7 +602,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   text-align: center;
   padding: 0px;
   color: #57764a;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .response-message-black{
@@ -515,7 +611,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   text-align: center;
   padding: 0px;
   color: #000;
-  font-size: 20px;
+  font-size: 16px;
   padding-top: 20px;
 }
 
@@ -539,7 +635,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   background-size: cover;
 }
 
-.no-image-class p {
+.no-image-class p:first-child{
   font-family: 'Libre Baskerville', serif;
   text-align: center;
   max-width: 90%;
@@ -551,13 +647,25 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   padding-top: 60px;
 }
 
+.no-image-class p {
+  font-family: 'Libre Baskerville', serif;
+  text-align: center;
+  max-width: 90%;
+  padding: 10px 20px;
+  margin: 0;
+  width: 100%;
+  color: #000;
+  font-size: 24px;
+  padding-top: 60px;
+}
+
 .no-image-class a{
   font-family: 'Libre Baskerville', serif;
   width: 100%;
   text-align: center;
   padding: 0px;
   color: #57764a;
-  font-size: 30px;
+  font-size: 24px;
   padding-top: 60px;
 }
 
@@ -567,8 +675,18 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     padding: 10px;
   }
 
+  .response-message {
+    font-size: 22px;
+    padding-bottom: 0;
+  }
+
+  .response-message-2 {
+    font-size: 16px;
+  }
+
   .response-message-black{
     font-size: 16px !important;
+    padding-top: 0;
   }
 
   .no-image-class p {
