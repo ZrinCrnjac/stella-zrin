@@ -673,6 +673,8 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 @media (max-width: 768px) {
   .no-image-class {
     padding: 10px;
+    padding-top: 0;
+    height: 95vh;
   }
 
   .response-message {
@@ -687,11 +689,12 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   .response-message-black{
     font-size: 16px !important;
     padding-top: 0;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
   }
 
   .no-image-class p:first-child{
     font-size: 22px;
+    padding-top: 0;
   }
 
   .no-image-class p {
