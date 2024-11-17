@@ -1,0 +1,96 @@
+/* General Styles */
+.admin-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .rsvp-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .rsvp-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rsvp-item p {
+    margin: 5px 0;
+  }
+  
+  .rsvp-item strong {
+    color: #333;
+  }
+  
+  /* Style the row for Name and Attending to be side by side */
+  .rsvp-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .rsvp-row p {
+    margin: 0;
+  }
+  
+  .rsvp-row p strong {
+    margin-right: 10px;
+  }
+  
+  .rsvp-row span {
+    margin-left: 10px;
+  }
+
+  .rsvp-item .checkmark {
+    color: green;
+  }
+  
+  .rsvp-item .cross {
+    color: red;
+  }
+  
+  /* Mobile Styles */
+  @media screen and (max-width: 768px) {
+    .admin-container {
+      padding: 15px;
+    }
+  
+    .rsvp-list {
+      gap: 15px;
+    }
+  
+    .rsvp-item {
+      padding: 15px;
+    }
+  
+    .rsvp-row {
+      flex-direction: column; /* Stack vertically on smaller screens */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .admin-container {
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    .rsvp-item {
+      padding: 12px;
+    }
+  }
+  
