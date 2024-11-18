@@ -13,7 +13,22 @@ function Admin() {
       try {
         const querySnapshot = await getDocs(collection(db, "guests"));
         const rsvpList = querySnapshot.docs.map(doc => doc.data());
-        setRsvps(rsvpList);
+
+        // Sort RSVPs by lastName (and firstName as a tiebreaker)
+        const sortedRsvpList = rsvpList.sort((a, b) => {
+          const lastNameA = a.lastName?.toLowerCase() || '';
+          const lastNameB = b.lastName?.toLowerCase() || '';
+          const firstNameA = a.firstName?.toLowerCase() || '';
+          const firstNameB = b.firstName?.toLowerCase() || '';
+
+          if (lastNameA < lastNameB) return -1;
+          if (lastNameA > lastNameB) return 1;
+          if (firstNameA < firstNameB) return -1;
+          if (firstNameA > firstNameB) return 1;
+          return 0;
+        });
+
+        setRsvps(sortedRsvpList);
       } catch (error) {
         console.error("Error fetching RSVPs:", error);
       }
