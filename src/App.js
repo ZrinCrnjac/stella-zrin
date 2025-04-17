@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from './index';
-import emailjs from 'emailjs-com'
 import { sendRSVPEmail } from './emailService';
 
 function App() {
@@ -28,6 +27,8 @@ function App() {
 
   // New state variable to toggle the form visibility
   const [isFormVisible, setIsFormVisible] = useState(false);
+
+  const [showOverlay] = useState(true); // New state for overlay visibility
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -124,6 +125,24 @@ function App() {
 
   return (
     <div className="container" ref={containerRef}>
+      {showOverlay && (
+        <div className="overlay">
+          <div className="overlay-content">
+            <div className="overlay-text">
+              <p>Dragi gosti, stigle su nam fotografije našeg vjenčanja. Zbog količine i veličine fotografija morali smo podijeliti u dva linka.
+              </p><br />
+              <p>Ovdje možete pronaći fotografije s darivanja, photo bootha i prije sale</p>
+              <a href="https://drive.google.com/drive/folders/1EY47QQNjT1ccGliaWvYeuTcbd9Bp4sEe?usp=sharing" target="_blank" rel="noopener noreferrer" className="overlay-link">
+                Mix
+              </a>
+              <p>A ovdje možete pronaći fotografije iz sale</p>
+              <a href="https://drive.google.com/drive/folders/1bSI9T0cHQojxWZTsbpEiiUStWf6h9iSQ?usp=sharing" target="_blank" rel="noopener noreferrer" className="overlay-link">
+                Zoo Hotel
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
       {!formSubmitted ? (
         <>
           <div className="left-side">
@@ -311,7 +330,7 @@ function App() {
               <br />
             </p>
             {responseImage && <img src={responseImage} alt="Response" className="response-image" />}
-              <p className="response-message-black">AKO ŽELIŠ OPET ISPUNITI OBRAZAC KLIKNI <a href="#" className="response-message-2" onClick={handleReset}>OVDJE</a></p>
+              <p className="response-message-black">AKO ŽELIŠ OPET ISPUNITI OBRAZAC KLIKNI <a href="https://www.google.com" className="response-message-2" onClick={handleReset}>OVDJE</a></p>
           </div>
         </>
       )}
