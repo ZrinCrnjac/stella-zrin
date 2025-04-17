@@ -779,6 +779,11 @@ input[type="checkbox"]:disabled + .custom-checkbox::before {
   border: 2px solid #57764a;
   border-radius: 4px;
   transition: all 0.3s ease;
+  margin-right: 20px; /* Add space between links */
+}
+
+.overlay-link:last-child {
+  margin-right: 0; /* Remove margin from the last link */
 }
 
 .overlay-link:hover {

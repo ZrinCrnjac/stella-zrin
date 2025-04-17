@@ -129,16 +129,15 @@ function App() {
         <div className="overlay">
           <div className="overlay-content">
             <div className="overlay-text">
-              <p>Dragi gosti, stigle su nam fotografije našeg vjenčanja. Zbog količine i veličine fotografija morali smo podijeliti u dva linka.
+              <p>Dragi gosti, stigle su nam fotografije našeg vjenčanja. Zbog količine i veličine fotografija morali smo ih podijeliti u dva linka.
               </p><br />
-              <p>Ovdje možete pronaći fotografije s darivanja, photo bootha i prije sale</p>
               <a href="https://drive.google.com/drive/folders/1EY47QQNjT1ccGliaWvYeuTcbd9Bp4sEe?usp=sharing" target="_blank" rel="noopener noreferrer" className="overlay-link">
                 Mix
               </a>
-              <p>A ovdje možete pronaći fotografije iz sale</p>
               <a href="https://drive.google.com/drive/folders/1bSI9T0cHQojxWZTsbpEiiUStWf6h9iSQ?usp=sharing" target="_blank" rel="noopener noreferrer" className="overlay-link">
                 Zoo Hotel
               </a>
+              <p>Hvala svima što ste bili! Ako imate još nekih slika ili videa slobodno nam pošaljite.</p>
             </div>
           </div>
         </div>
